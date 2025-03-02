@@ -1,0 +1,64 @@
+:root {
+  --lime: hsl(61, 70%, 52%);
+  --White: hsl(0, 0%, 100%);
+
+  --Slate-500: hsl(200, 26%, 54%);
+  --Slate-700: hsl(200, 24%, 40%);
+
+  --Slate-900: hsl(202, 55%, 19%);
+  --Slate-dark: hsl(202, 60%, 13%);
+}
+
+@font-face {
+  font-family: "Plus Jakarta";
+  src: url("./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+  font-display: swap;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: "Plus Jakarta";
+  align-items: center;
+}
+
+.checkbox--type::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: var(--lime);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked ~ label {
+  border-color: var(--lime) !important;
+  transition: 0.3s linear;
+}
+
+input[type="checkbox"]:checked ~ label::after {
+  opacity: 1;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.error {
+  border-color: red !important;
+}
+.selected {
+  border-color: var(--lime) !important;
+  background: hsla(61, 70%, 60%, 0.15) !important;
+}
+
+.mortgage--type {
+  cursor: pointer;
+}
