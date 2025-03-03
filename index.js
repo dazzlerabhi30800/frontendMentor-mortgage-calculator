@@ -6,15 +6,12 @@ const inputChecks = document.querySelectorAll('input[type="checkbox"]');
 
 const symbol = "€";
 
-const clearAllBtn = document.querySelector('#clear--btn');
-
-
+const clearAllBtn = document.querySelector("#clear--btn");
 
 // NOTE: ->  Reset all fields
 clearAllBtn.onclick = () => {
   window.location.reload();
-}
-
+};
 
 // Info Wrapper elements
 const heading = document.querySelector("h3");
@@ -27,7 +24,7 @@ const amountWrapper = document.getElementById("amount--wrapper");
 const interestText = amountWrapper.querySelector("#amount--text");
 const totalAmountText = amountWrapper.querySelector("#total--amount");
 
-const digitRegex = /(\d)(?=(\d{3})+(?!\d))/g;
+const digitRegex = /\B(?=(\d{3})+(?!\d))/g;
 
 const loanType = {
   mortgageInterest: "Interest Only",
@@ -37,7 +34,7 @@ const loanType = {
 // NOTE: -> to format amount
 function formatNumberWithCommas(number) {
   const parts = number.toString().split(".");
-  const leftStr = parts[0].replace(digitRegex, ",");
+  const leftStr = parts[0].toString().replace(digitRegex, ",");
   let decPart = parts.length > 1 ? parts[1].slice(0, 2) : "";
   return leftStr + "." + decPart;
 }
