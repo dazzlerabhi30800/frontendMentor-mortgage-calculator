@@ -24,8 +24,6 @@ const amountWrapper = document.getElementById("amount--wrapper");
 const interestText = amountWrapper.querySelector("#amount--text");
 const totalAmountText = amountWrapper.querySelector("#total--amount");
 
-const digitRegex = /\B(?=(\d{3})+(?!\d))/g;
-
 const loanType = {
   mortgageInterest: "Interest Only",
   repayment: "Repayment",
@@ -33,6 +31,7 @@ const loanType = {
 
 // NOTE: -> to format amount
 function formatNumberWithCommas(number) {
+  const digitRegex = /\B(?=(\d{3})+(?!\d))/g;
   const parts = number.toString().split(".");
   const leftStr = parts[0].toString().replace(digitRegex, ",");
   let decPart = parts.length > 1 ? parts[1].slice(0, 2) : "";
@@ -81,6 +80,8 @@ form.addEventListener("submit", (e) => {
   );
   if (!isErrorInput && isChecked) {
     formSuccess();
+  } else {
+    alert("Fill the fields correctly!!");
   }
 });
 
